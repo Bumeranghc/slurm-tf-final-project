@@ -1,21 +1,16 @@
+variable "image_name" {
+    type = string
+    default = env("TF_VAR_vm_image")
+}
+
 variable "image_tag" {
     type = string
-    default = env("YC_IMAGE_TAG")
+    default = env("TF_VAR_vm_image_tag")
 }
 
 variable "YC_FOLDER_ID" {
   type = string
-  default = env("YC_FOLDER_ID")
-}
-
-variable "YC_ZONE" {
-  type = string
-  default = env("YC_ZONE")
-}
-
-variable "YC_SUBNET_ID" {
-  type = string
-  default = env("YC_SUBNET_ID")
+  default = env("TF_VAR_folder_id")
 }
 
 variable "YC_TOKEN" {
@@ -30,10 +25,8 @@ source "yandex" "centos" {
   use_ipv4_nat        = "true"
   image_description   = "Slurm NGINX web server"
   image_family        = "nginx-web-server"
-  image_name          = "nginx-${var.image_tag}"
-  subnet_id           = "${var.YC_SUBNET_ID}"
+  image_name          = "${var.image_name}-${var.image_tag}"
   disk_type           = "network-hdd"
-  zone                = "${var.YC_ZONE}"
   token               = "${var.YC_TOKEN}"
 }
 
