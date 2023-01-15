@@ -8,3 +8,8 @@ output "alb_ip" {
     description = "Public IP for ALB"
     value = yandex_alb_load_balancer.this.listener[0].endpoint[0].address[0].external_ipv4_address[0].address
 }
+
+output "instances_external_ips" {
+    description = "Public IP address of instances."
+    value = yandex_compute_instance_group.this.instances.*.network_interface.0.nat_ip_address
+}
