@@ -19,3 +19,9 @@ Create image:
 cd packer
 packer build nginx.pkr.hcl
 ```
+## Run Terraform
+```
+cd terraform
+terraform init
+terraform apply --auto-approve
+```
