@@ -1,9 +1,3 @@
-resource "local_sensitive_file" "sshkey" {
-    content  = "${var.private_ssh_key_path == "" ? tls_private_key.this[0].private_key_pem : file(var.private_ssh_key_path)}"
-    filename = "/tmp/slurmconfigssh.pem"
-    file_permission = "0400"
-}
-
 resource "yandex_iam_service_account" "this" {
   name        = "${local.prefix}vmmanager"
   description = "Service account to manage VMs"

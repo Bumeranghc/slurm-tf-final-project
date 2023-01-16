@@ -26,11 +26,6 @@ variable "public_ssh_key_path" {
     description = "SSH public key path to copy to instance."
 }
 
-variable "private_ssh_key_path" {
-    type        = string
-    description = "SSH private key path to connect to instance."
-}
-
 variable "az" {
     type        = list(string)
     description = "List of availability zones."

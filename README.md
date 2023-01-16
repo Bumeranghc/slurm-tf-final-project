@@ -8,7 +8,7 @@ export TF_VAR_vm_image=nginx
 export TF_VAR_vm_image_tag=1
 ```
 ## For Packer with Ansible provisioner under Ubuntu
-Add to /etc/ssh/ssh_config the next lines if you have problems with ssh connection for Ansible:
+Add to `/etc/ssh/ssh_config` the next lines if you have problems with ssh connection for Ansible:
 ```
 PubkeyAcceptedAlgorithms ssh-rsa
 HostkeyAlgorithms ssh-rsa
@@ -28,7 +28,9 @@ terraform apply --auto-approve
 ```
 ## Connect to instances
 If you would like to connect to instance from instance group, use an IP from instances_exteranl_ips output and centos as username.
-If you didn't use your own keys, to get a private key you should run:
+You can provide your public key to set up instances during infrastructure creation using variable `public_ssh_key_path`.
+
+If you don't use your own keys, to get a private key you should run:
 ```
 terraform output -raw private_key
 ```
