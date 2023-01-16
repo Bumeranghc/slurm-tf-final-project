@@ -27,7 +27,8 @@ terraform init
 terraform apply --auto-approve
 ```
 ## Connect to instances
-If you would like to connect to instance from instance group, use an IP from instances_exteranl_ips output and centos as username.
+If you would like to connect to instance from instance group, use an IP from `instances_external_ips` output and `centos` as username.
+
 You can provide your public key to set up instances during infrastructure creation using variable `public_ssh_key_path`.
 
 If you don't use your own keys, to get a private key you should run:
