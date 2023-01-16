@@ -34,7 +34,7 @@ resource "yandex_compute_instance_group" "this" {
 
     labels = var.labels
     metadata = {
-      ssh-keys = var.public_ssh_key_path == "" ? "centos:${tls_private_key.instancekey[0].public_key_openssh}" : "centos:${file(var.public_ssh_key_path)}"
+      ssh-keys = var.public_ssh_key_path == "" ? "centos:${tls_private_key.this[0].public_key_openssh}" : "centos:${file(var.public_ssh_key_path)}"
     }
     network_settings {
       type = "STANDARD"

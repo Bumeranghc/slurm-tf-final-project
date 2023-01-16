@@ -1,6 +1,6 @@
 labels = {
-    "project" = "slurm",
-    "env" = "lab"
+    "project"   = "slurm",
+    "env"       = "lab"
 }
 cidr_blocks = [
     [
@@ -14,15 +14,15 @@ cidr_blocks = [
     ]
 ]
 resources = {
-    disk = 20
-    cpu = 4
-    memory = 8
+    disk    = 20
+    cpu     = 4
+    memory  = 8
 }
-public_ssh_key_path = ""
-private_ssh_key_path = ""
+public_ssh_key_path     = ""
+private_ssh_key_path    = ""
 az = [
     "ru-central1-a",
     "ru-central1-b",
     "ru-central1-c"
 ]
-vm_count = 3
+vm_count    = 3

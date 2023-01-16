@@ -28,7 +28,7 @@ variable "public_ssh_key_path" {
 
 variable "private_ssh_key_path" {
     type        = string
-    description = "SSH private key path to copy to instance."
+    description = "SSH private key path to connect to instance."
 }
 
 variable "az" {
@@ -52,6 +52,6 @@ variable "vm_image_tag" {
 }
 
 variable "folder_id" {
-  type = string
-  description = "Folder ID for your account." 
+  type          = string
+  description   = "Folder ID for your account." 
 }

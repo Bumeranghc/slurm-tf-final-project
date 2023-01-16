@@ -8,7 +8,7 @@ export TF_VAR_vm_image=nginx
 export TF_VAR_vm_image_tag=1
 ```
 ## For Packer with Ansible provisioner under Ubuntu
-Add to /etc/ssh/ssh_config the next lines:
+Add to /etc/ssh/ssh_config the next lines if you have problems with ssh connection for Ansible:
 ```
 PubkeyAcceptedAlgorithms ssh-rsa
 HostkeyAlgorithms ssh-rsa
@@ -20,8 +20,21 @@ cd packer
 packer build nginx.pkr.hcl
 ```
 ## Run Terraform
+Create infrastructure:
 ```
 cd terraform
 terraform init
 terraform apply --auto-approve
 ```
+## Connect to instances
+If you would like to connect to instance from instance group, use an IP from instances_exteranl_ips output and centos as username.
+If you didn't use your own keys, to get a private key you should run:
+```
+terraform output -raw private_key
+```
+## Clear created resources
+Destroy created infrastructure:
+```
+terraform destroy --auto-approve
+```
+You need to delete an image created with Packer manually from Yandex Cloud.
